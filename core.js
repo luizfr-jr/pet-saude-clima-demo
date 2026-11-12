@@ -1,6 +1,6 @@
 'use strict';
 const PetDemo = (() => {
-  const labels = {draft:'Em preenchimento', submitted:'Aguardando assinaturas', approved:'Validada'};
+  const labels = {draft:'Em preenchimento', submitted:'Aguardando validação', approved:'Validada'};
   const roles = {student:'Estudante', advisor:'Orientador(a)', preceptor:'Preceptor(a)', coordinator:'Coordenação'};
   const months = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
   const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
