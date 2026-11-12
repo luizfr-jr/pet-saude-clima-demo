@@ -52,10 +52,6 @@ const PetDemo = (() => {
       if(person&&(person.name!==row.nome.trim()||person.email!==email||person.role!==role))throw Error(`Linha ${i+2}: a conta já existe com outros dados ou função.`);
       if(people.some(p=>p.email===email&&p.username!==username))throw Error(`Linha ${i+2}: email em outra conta.`);
       if(person&&role==='student'&&!person.groups.includes(group))throw Error('O estudante só pode pertencer a um grupo.');
-      if(!person||!person.groups.includes(group)) {
-        const count=people.filter(p=>p.role===role&&p.groups.includes(group)).length;
-        if(role==='student'&&count>=8||role==='advisor'&&count>=2)throw Error(`Grupo ${group}: limite de ${role==='student'?8:2} ${role==='student'?'estudantes':'orientadores'} atingido.`);
-      }
       if(!person){person={id:`demo-${username}`,name:row.nome.trim(),email,username,role,groups:[],course:row.curso?.trim()||''};people.push(person);}
       if(!person.groups.includes(group))person.groups.push(group);
     }
